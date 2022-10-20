@@ -31,6 +31,7 @@ Make sure your code in main() follows the sequence below.
    2. generate command, usually the main content of testing command
    3. generate command, usually footer
    > Note: This step depends on user's testing command, if the user need advance seting of command (e.g lsb or msb) see `command_t` in serial.h
+   
    > Note: While using `GC(ascii)`, don't forget add one more byte at the argument `cpn_len` (due to #define "abc" is a string in C, there is a '\0' at the end of string)
 
 
