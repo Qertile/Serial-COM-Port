@@ -198,7 +198,7 @@ void receive(void){
         else{
             rx_buffer[rx_ctr] = rx_tmp;
             rx_ctr++;
-            if ( rx_buffer[rx_ctr-1] == 0x0D ) break;
+            // if ( rx_buffer[rx_ctr-1] == 0x0D ) break;
         }
     }
     while (BytesRead > 0 || rx_ctr >= RX_BUFFER_SIZE );
