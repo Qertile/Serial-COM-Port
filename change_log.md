@@ -3,7 +3,7 @@
 Using C language(WinAPI) to access serial port of PC
 
 ---------------------------------------------------------------
-## Unreleased v0.XX (2022.XX.XX)
+## Unreleased v1.XX (2022.XX.XX)
 ### New
 ### Changed 
 ### Discarded
@@ -14,9 +14,18 @@ Using C language(WinAPI) to access serial port of PC
 ### Reference
 
 ---------------------------------------------------------------
+## Unreleased v1.1 (2022.10.19)
+### New
+- update README.md
+### Discarded
+- The 0x0D terminate in `ReadFile()`
+---------------------------------------------------------------
 ## Serial v1.0 (2022.10.17)
 ### New
 - add README.md
+### Known Issues
+- Need add more description in GC(ascii)
+- Some device may have 0x0D in reply messages, can't use 0x0D as terminate condition while reading messages
 ---------------------------------------------------------------
 ## Serial v1.0 (2022.10.13)
 ### Notes
