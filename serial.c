@@ -83,8 +83,8 @@ void initComPort(uint8_t portNo, uint32_t baudrate){
     
     /* --------------- Set timeout structure --------------- */
     COMMTIMEOUTS timeouts = { 0 };        // Initializing COMMTIMEOUTS structure
-    timeouts.ReadIntervalTimeout = 10;       // timeout between bytes
-    timeouts.ReadTotalTimeoutConstant = 50;  // total timeout in one transaction
+    timeouts.ReadIntervalTimeout = 50;       // timeout between bytes
+    timeouts.ReadTotalTimeoutConstant = 500;  // total timeout in one transaction
     
     status_ = SetCommTimeouts(hComm_, &timeouts);
     if (!status_) {

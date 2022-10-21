@@ -17,6 +17,8 @@ Using C language(WinAPI) to access serial port of PC
 ## Unreleased v1.1 (2022.10.19)
 ### New
 - update README.md
+### Changed
+- change `ReadIntervalTimeout` to 50 ms, and ReadTotalTimeoutConstant to 500 ms
 ### Discarded
 - The 0x0D terminate in `ReadFile()`
 ---------------------------------------------------------------
