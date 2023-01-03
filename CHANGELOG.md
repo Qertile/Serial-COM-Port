@@ -3,8 +3,9 @@
 Using C language(WinAPI) to access serial port of PC
 
 ---------------------------------------------------------------
-## Unreleased v#.#.# (####.##.##)
+## Unreleased v1.1.2 (####.##.##)
 ### New
+- seletable print receive format (hex/ascii)
 ### Changed 
 ### Discarded
 ### Removed
