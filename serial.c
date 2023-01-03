@@ -209,7 +209,7 @@ void receive(void){
     /* ------------------ Print received data ------------------ */
 
     for (int i = 0; i < rx_ctr; i++){
-        printf("%c", rx_buffer[i]);
+        printf("%X", rx_buffer[i]);
     }
     
     return;
@@ -291,8 +291,8 @@ command_t* gen_command_ascii(command_t* cmd, uint8_t* cpn, size_t cpn_len){
     
     if (cmd->ctr_rst) cmd->ctr =0;
 
-    /* to eliminate "\0" in string */
-    cpn_len -= 1;       
+    // /* to eliminate "\0" in string */
+    // cpn_len -= 1;       
 
     for(int i=0; i<cpn_len; i++){
             *(cmd->body + cmd->ctr) = *(cpn+i);

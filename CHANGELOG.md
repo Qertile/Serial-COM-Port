@@ -3,7 +3,7 @@
 Using C language(WinAPI) to access serial port of PC
 
 ---------------------------------------------------------------
-## Unreleased v0.XX (2022.XX.XX)
+## Unreleased v#.#.# (####.##.##)
 ### New
 ### Changed 
 ### Discarded
@@ -14,7 +14,14 @@ Using C language(WinAPI) to access serial port of PC
 ### Reference
 
 ---------------------------------------------------------------
-## Unreleased v1.1 (2022.10.19)
+## Serial v1.1.1 (2023.01.03)
+### Changed 
+- change print hex in `receive()`
+### Removed
+- remove `cpn_len`-1 in GC(ascii)
+
+---------------------------------------------------------------
+## Serial v1.1 (2022.10.19)
 ### New
 - update README.md
 ### Changed

@@ -13,7 +13,7 @@
 int main (void){
 
     /* ------------------ Initialize Serial COM Port ------------------ */
-    initComPort(5, 9600);    // (port number, baudrate)
+    initComPort(4, 9600);    // (port number, baudrate)
     
 
     /* ------------------ Set Commands ------------------ */
