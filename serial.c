@@ -151,7 +151,7 @@ void transmit(void){
     return;
 }
 
-void receive(void){
+void receive(uint8_t print_format){
 /*
     @Discreption
         This function will receive the messages form the device, and move byte by byte to `rx_buffer` and the default buffer size depends on `RX_BUFFER_SIZE` defined in serial.h
@@ -208,8 +208,15 @@ void receive(void){
     
     /* ------------------ Print received data ------------------ */
 
-    for (int i = 0; i < rx_ctr; i++){
-        printf("%X", rx_buffer[i]);
+    if (print_format == 1){
+        for (int i = 0; i < rx_ctr; i++){
+            printf("%c", rx_buffer[i]);
+        }
+    }
+    else{
+        for (int i = 0; i < rx_ctr; i++){
+            printf("%X ", rx_buffer[i]);
+        }
     }
     
     return;

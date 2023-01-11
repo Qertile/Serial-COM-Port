@@ -41,7 +41,7 @@ extern HANDLE hComm_;
 void initComPort(uint8_t portNo, uint32_t baudrate);
 void printCommand(void);
 void transmit(void);
-void receive(void);
+void receive(uint8_t print_format);
 void closePort(void);
 
 /* ------------------ Command generation functions ------------------ */

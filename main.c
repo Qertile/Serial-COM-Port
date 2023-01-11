@@ -13,7 +13,7 @@
 int main (void){
 
     /* ------------------ Initialize Serial COM Port ------------------ */
-    initComPort(4, 9600);    // (port number, baudrate)
+    initComPort(5, 9600);    // (port number, baudrate)
     
 
     /* ------------------ Set Commands ------------------ */
@@ -31,7 +31,7 @@ int main (void){
     transmit();
     
     /* ------------------ Receive Messages ------------------ */
-    receive();
+    receive(1);
 
     /* ------------------ Free Memory Space ------------------ */
     GC(clear)(_command_);

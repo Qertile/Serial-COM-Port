@@ -5,7 +5,7 @@ Using C language(WinAPI) to access serial port of PC
 ---------------------------------------------------------------
 ## Unreleased v1.1.2 (####.##.##)
 ### New
-- seletable print receive format (hex/ascii)
+- selectable print receive format (hex/ascii)
 ### Changed 
 ### Discarded
 ### Removed
@@ -14,6 +14,10 @@ Using C language(WinAPI) to access serial port of PC
 ### Notes
 ### Reference
 
+---------------------------------------------------------------
+## Serial v1.1.2 (2023.01.11)
+### New
+- selectable print receive format (hex/ascii)
 ---------------------------------------------------------------
 ## Serial v1.1.1 (2023.01.03)
 ### Changed 
