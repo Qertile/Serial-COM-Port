@@ -45,10 +45,10 @@ void receive(uint8_t print_format);
 void closePort(void);
 
 /* ------------------ Command generation functions ------------------ */
-void gen_command_clear(command_t* cmd);
+void gen_command_clear(void);
 void gen_command_init(void);
-command_t* gen_command_hex(command_t* cmd, uint32_t cpn, size_t cpn_len);
-command_t* gen_command_ascii(command_t* cmd, uint8_t* cpn, size_t cpn_len);
-command_t* gen_command_crc(command_t *_cmd);
+void gen_command_hex(uint32_t cpn, size_t cpn_len);
+void gen_command_ascii(uint8_t* cpn, size_t cpn_len);
+void gen_command_crc(void);
 
 #endif

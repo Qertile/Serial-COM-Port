@@ -244,7 +244,7 @@ void closePort(void){
 
 /* ================== Command generation functions ================== */
 
-command_t* gen_command_hex(command_t* cmd, uint32_t cpn, size_t cpn_len){
+void gen_command_hex(uint32_t cpn, size_t cpn_len){
 /*
     @Discreption
         This function will split component into unit of bytes, and append it to command_body in command structure. And it will append component in MSB or LSB by "lsb" in command structure. If ctr_rst == 1, this function will set counter to 0
@@ -258,31 +258,30 @@ command_t* gen_command_hex(command_t* cmd, uint32_t cpn, size_t cpn_len){
         cmd: structure of command
 */
     
-    if (cmd->ctr_rst) cmd->ctr =0;
-    if (cmd->lsb){
+    if (_command_->ctr_rst) _command_->ctr =0;
+    if (_command_->lsb){
         for(int i=0; i<cpn_len; i++){
-            *(cmd->body + cmd->ctr) = cpn >> 8*i;
-            cmd->ctr++;
+            *(_command_->body + _command_->ctr) = cpn >> 8*i;
+            _command_->ctr++;
         }
     }
     else{        
         for(int i=cpn_len; i>0; i--){
-            *(cmd->body + cmd->ctr) = cpn >> 8*(i-1);
-            cmd->ctr++;
+            *(_command_->body + _command_->ctr) = cpn >> 8*(i-1);
+            _command_->ctr++;
         }
     }    
 
-    cmd->length += cpn_len;
+    _command_->length += cpn_len;
     
     /* ----- for debug command use -----*/
-    // for(int i = 0; i<cmd->length; i++){
-    //     printf("%d = %X\n",i, *(cmd->body + i));
+    // for(int i = 0; i<_command_->length; i++){
+    //     printf("%d = %X\n",i, *(_command_->body + i));
     // }
 
-    return cmd;
 }
 
-command_t* gen_command_ascii(command_t* cmd, uint8_t* cpn, size_t cpn_len){
+void gen_command_ascii(uint8_t* cpn, size_t cpn_len){
 /*
     @Discreption
         This function will split component into unit of bytes, and append it to command_body in command structure. There is no MSB or LSB for ascii command. If ctr_rst == 1, this function will set counter to 0
@@ -296,27 +295,27 @@ command_t* gen_command_ascii(command_t* cmd, uint8_t* cpn, size_t cpn_len){
         cmd: structure of command
 */
     
-    if (cmd->ctr_rst) cmd->ctr =0;
+    if (_command_->ctr_rst) _command_->ctr =0;
 
     // /* to eliminate "\0" in string */
     // cpn_len -= 1;       
 
     for(int i=0; i<cpn_len; i++){
-            *(cmd->body + cmd->ctr) = *(cpn+i);
-            cmd->ctr++;
+            *(_command_->body + _command_->ctr) = *(cpn+i);
+            _command_->ctr++;
     }
 
-    cmd->length += cpn_len;
+    _command_->length += cpn_len;
     
     /* ----- for debug command use -----*/
-    // for(int i = 0; i<cmd->length; i++){
-    //     printf("%d = %X\n",i, *(cmd->body + i));
+    // for(int i = 0; i<_command_->length; i++){
+    //     printf("%d = %X\n",i, *(_command_->body + i));
     // }
 
-    return cmd;
+    return;
 }
 
-command_t* gen_command_crc(command_t *_cmd){
+void gen_command_crc(void){
 /*
     @Discreption
         This function will calculate the crc32 for the command, and use gen_command_hex to append the crc code to the command
@@ -329,9 +328,8 @@ command_t* gen_command_crc(command_t *_cmd){
 */
 
     uint32_t crc = 0x00000000; 
-    crc = crc32(crc, _cmd->body, _cmd->length);     // get CRC32 from command
-    gen_command_hex(_cmd, crc, 4);
-    return _cmd;
+    crc = crc32(crc, _command_->body, _command_->length);     // get CRC32 from command
+    gen_command_hex(crc, 4);
 }
 
 void gen_command_init(void){
@@ -356,7 +354,7 @@ void gen_command_init(void){
     return;
 }
 
-void gen_command_clear(command_t* cmd){
+void gen_command_clear(void){
 /*
     @Discreption
         This function will free the memory space of command
@@ -368,5 +366,5 @@ void gen_command_clear(command_t* cmd){
         none
 */
 
-    free(cmd);
+    free(_command_);
 }

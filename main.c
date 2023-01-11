@@ -13,16 +13,16 @@
 int main (void){
 
     /* ------------------ Initialize Serial COM Port ------------------ */
-    initComPort(5, 9600);    // (port number, baudrate)
+    initComPort(3, 9600);    // (port number, baudrate)
     
 
     /* ------------------ Set Commands ------------------ */
     GC(init)();
-    GC(ascii)(_command_, HEADER, 5);
-    GC(ascii)(_command_, STATUS, 9);
-    // GC(hex)(_command_, BEACON, 2);
-    // GC(crc)(_command_);
-    GC(hex)(_command_, FOOTER, 2);
+    GC(ascii)(HEADER, 4);
+    GC(ascii)(STATUS, 8);
+    // GC(hex)(BEACON, 2);
+    // GC(crc)();
+    GC(hex)(FOOTER, 2);
 
     /* ------------------ Print Commands ------------------ */
     printCommand();
@@ -34,7 +34,7 @@ int main (void){
     receive(1);
 
     /* ------------------ Free Memory Space ------------------ */
-    GC(clear)(_command_);
+    GC(clear)();
 
     /* ------------------ Close COM Port ------------------ */
     closePort();

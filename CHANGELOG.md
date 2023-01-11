@@ -5,7 +5,6 @@ Using C language(WinAPI) to access serial port of PC
 ---------------------------------------------------------------
 ## Unreleased v1.1.2 (####.##.##)
 ### New
-- selectable print receive format (hex/ascii)
 ### Changed 
 ### Discarded
 ### Removed
@@ -15,15 +14,22 @@ Using C language(WinAPI) to access serial port of PC
 ### Reference
 
 ---------------------------------------------------------------
+## Serial v1.2.0 (2023.01.11)
+### Removed
+- remove `_command_` argument in all GC()
+
+---------------------------------------------------------------
 ## Serial v1.1.2 (2023.01.11)
 ### New
 - selectable print receive format (hex/ascii)
+- receive(1) = print ascii, else = print hex
+
 ---------------------------------------------------------------
 ## Serial v1.1.1 (2023.01.03)
 ### Changed 
 - change print hex in `receive()`
 ### Removed
-- remove `cpn_len`-1 in GC(ascii)
+- remove `cpn_len`-1 in GC(ascii), now how many words is how many bytes input
 
 ---------------------------------------------------------------
 ## Serial v1.1 (2022.10.19)
